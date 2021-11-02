@@ -123,9 +123,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-#TODO
-#Monoschromiter, read up into
-#Look into phases of G2O3
-#AlGAO, aluminium potential
-#Corunium crystal strucutre 
