@@ -1,0 +1,45 @@
+Project: BN1_0004_MAP
+
+
+03/11/2021 15:30:16
+Stage Scan
+Acc. V     5.0 kV
+Prob C   9.996E-009A
+Mode: SPOT
+Prob Diam. 0.0 (um)
+Dwell(ms) 20.00     
+Stage No. : 1
+  X : -6.0993 mm
+  Y :-24.4928 mm
+  Z : 10.4735 mm
+Direction: Single
+Points  150 X 150
+Interval(um) X:0.50      
+             Y:0.50      
+Length  (um) X:75.00     
+             Y:75.00     
+
+  C WDS  1ch  LDE2H
+  Ka  Order 1
+  Peak Pos. 125.1980 mm
+  A,B value   0.0000, 0.0000
+
+  O WDS  2ch  LDE1L
+  Ka  Order 1
+  Peak Pos. 111.5820 mm
+  A,B value   0.0000, 0.0000
+
+  Al WDS  3ch  TAP
+  Ka  Order 1
+  Peak Pos. 90.6620 mm
+  A,B value   0.0000, 0.0000
+
+  B WDS  1ch  LDE2H
+  Ka  Order 1
+  Peak Pos. 192.2070 mm
+  A,B value   0.0000, 0.0000
+
+  N WDS  2ch  LDE1L
+  Ka  Order 1
+  Peak Pos. 149.5630 mm
+  A,B value   0.0000, 0.0000
