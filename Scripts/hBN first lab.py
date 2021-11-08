@@ -113,7 +113,7 @@ def main():
     CutOff = [[] for _ in range(len(files))]
     
     for x in range(len(files)):
-        CutOff[x] = np.where(vars()['b'+str(x)][1] > 0)[0]
+        CutOff[x] = np.where(vars()['b'+str(x)][1] > -1)[0]
     
     for x in range(len(files)):
         vars()['bb'+str(x)] = np.zeros((2,len(CutOff[x])))
@@ -128,7 +128,7 @@ def main():
         plt.xlabel('Energy (keV)')
         plt.ylabel('Intensity (Arb. Units)')
         plt.title(files[x])
-    
+        plt.xticks(np.arange(0, 21, 1))
         plt.semilogy(vars()['bb'+str(x)][0],vars()['bb'+str(x)][1],zorder = 0)
         for y in range(len(List)):
             for z in range(len(List[y][1])):
