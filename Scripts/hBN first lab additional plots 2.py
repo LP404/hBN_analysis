@@ -28,7 +28,6 @@ EDX_CutOff2_10 = np.array([1.90,2.90,4.06,3.82,4.86,5.62,6.87])
 DeltaEDX1 = EDX_Energy2 - EDX_CutOff2_1
 DeltaEDX10 = EDX_Energy2 - EDX_CutOff2_10
 
-
 Ray_AbsorbAl_200 = np.array([0,0,0,0.01,43.31,214.46,453.82,724.70,1004.51,1322.22,1628.55,1936.70,2249.50,2573.57,2895.99,3238.39,3570.42,3917.07,4261.61,4628.86])
 Ray_DetectAl_200 = np.array([0,0,0,0.01,40.54,198.18,412.81,646.76,877.80,1128.30,1354.43,1567.11,1768.83,1963.08,2137.60,2311.64,2457.30,2601.30,2726.82,2844.39])
 Ray_AbsorbB_200 = np.array([6.44,20.04,35.45,51.06,51.17,44.42,38.51,33.58,30.51,26.59,24.19,22.60,21.16,19.67,18.83,17.66,16.84,15.94,15.39,14.49])
@@ -152,7 +151,6 @@ plt.plot(BeamEnergy,(Ray_AbsorbO_300 / max(Ray_AbsorbO_300)), label = 'I_emit (O
 plt.plot(BeamEnergy,(Ray_DetectO_300 / max(Ray_DetectO_300)), label = 'I_detected (O)', marker = 'o')
 plt.legend()
 
-
 plt.figure(73)
 plt.title('Detection of X-Rays 2 (200nm) (Normalised)')
 plt.xlabel('Beam Energy (keV)')
@@ -182,7 +180,6 @@ plt.plot(BeamEnergy,(Ray_DetectB_300 / max(Ray_DetectB_300)), label = 'I_detecte
 plt.plot(BeamEnergy,(Ray_AbsorbN_300 / max(Ray_AbsorbN_300)), label = 'I_emit (N)', marker = 'o')
 plt.plot(BeamEnergy,(Ray_DetectN_300 / max(Ray_DetectN_300)), label = 'I_detected (N)', marker = 'o')
 plt.legend()
-
 
 plt.figure(103)
 plt.title('Detection of X-Rays, Simulation (200nm) Vs Experement (Normalised)')
@@ -258,7 +255,6 @@ plt.plot(WDX_Energy-AvgDelta,(L2N/max(L2N)), label = 'LDEL2 (N)', marker = 'o')
 plt.plot(WDX_Energy-AvgDelta,(L2B/max(L2B)), label = 'LDEL2 (B)', marker = 'x')
 plt.plot(WDX_Energy-AvgDelta,(L1N / max(L1N)), label = 'LDEL1 (N)', marker = 'o')
 plt.legend()
-
 
 plt.figure(132)
 plt.title('Detection of X-Rays, Simulation (300nm) Vs Experement (Normalised) (Overlayed)')
