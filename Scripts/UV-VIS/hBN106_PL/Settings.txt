@@ -1,0 +1,15 @@
+I used a 280 nm filter to remove the laser lines
+
+DUV laser 
+Intensity 	20 A
+Buss 		430 V
+Pulse 		100 us
+Frequency	20 Hz
+
+Energy 		7 uJ
+
+Acquisition
+Time 		2 sec
+Slit		0.5 mm (2 turns)
+
+Sample illuminated near 45 degrees angle but slightly off

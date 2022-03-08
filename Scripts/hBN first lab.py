@@ -124,7 +124,7 @@ for x in range(len(files)):
 EDXStopVal = 5
 
 for x in range(len(files)):
-    plt.figure((48751*(x+1)), figsize = (6,12), dpi = 300)
+    plt.figure((48751*(x+1)), figsize = (24,6), dpi = 300)
     plt.xlabel('Energy (keV)')
     plt.ylabel('Intensity (Arb. Units)')
     plt.title(files[x])
