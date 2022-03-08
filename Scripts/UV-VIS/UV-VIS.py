@@ -5,17 +5,6 @@ from scipy import stats
 h = 6.63e-34
 c = 3e8
 
-def merge(a, b):
-    n_a = len(a)
-    n = min(n_a, len(b))
-    m = 0
-    for i in range(1, n + 1):
-        if b[n - i] == a[n_a - 1 - m]:
-            m += 1
-        else:
-            m = 0
-    return a + b[m:]
-
 def shiftFunc(Array,Shift):
     # A quick check to see if the desired shift length exceeds the length of the array
     if Shift > len(Array):
@@ -284,3 +273,62 @@ plt.title('8k PL Substrate')
 plt.xlabel('Wavelength (nm)')
 plt.ylabel('Intensity (arb)')
 plt.show()
+
+for i in range(0,len(SubArray8y)):
+    if SubArray8y[i] > 150:
+        SubArray8y[i] = np.mean(SubArray8y)
+        
+plt.figure(10)
+plt.plot(SubArray8x,SubArray8y)
+plt.title('8k Substrate PL Sample')
+plt.xlabel('Wavelength (nm)')
+plt.ylabel('Intensity (arb)')
+plt.show()    
+
+
+NormArray290y = Array290y / max(Array290y)
+NormArray20y = Array20y / max(Array20y)
+
+NormSubArray290y = SubArray290y / max(SubArray290y)
+NormSubArray8y = SubArray8y / max(SubArray8y)
+
+
+for i in range(0,len(NormSubArray290y)):
+    if ((NormSubArray290y[i] - NormSubArray290y[i-1]) / (NormSubArray290y[i] - NormSubArray290y[i-1])) > 250:
+       NormSubArray290y[i] = NormSubArray290y[i-1]
+    elif ((NormSubArray290y[i] - NormSubArray290y[i-1]) / (NormSubArray290y[i] - NormSubArray290y[i-1])) < -250:
+        NormSubArray290y[i] = NormSubArray290y[i-1]
+    else:
+        pass
+
+
+    
+Diff1 = NormArray290y - NormSubArray290y
+Diff2 = NormArray20y - NormSubArray8y
+
+for i in range(len(Diff1)):
+    if Diff1[i] < 0:
+        Diff1[i] = 0
+    else:
+        pass
+    
+    if Diff2[i] < 0:
+        Diff2[i] = 0
+    else:
+        pass
+
+        
+
+plt.figure(11)
+plt.plot(SubArray290x,Diff1)
+plt.title('290K Sample with Substrate mitigated')
+plt.xlabel('Wavelength (nm)')
+plt.ylabel('Intensity (arb)')
+plt.show()  
+
+plt.figure(12)
+plt.plot(SubArray8x,Diff2)
+plt.title('20/8K Sample with Substrate mitigated')
+plt.xlabel('Wavelength (nm)')
+plt.ylabel('Intensity (arb)')
+plt.show()  
