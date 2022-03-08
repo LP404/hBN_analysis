@@ -220,66 +220,6 @@ plt.show()
 
 thicc = np.arange(0,500.01e-7,0.01e-7)
 
-plt.figure(10)
-RelativeIntensity = np.exp((-max(alpha) * thicc))
-plt.plot((thicc*1e7),RelativeIntensity*100)
-plt.xlabel('Sample thickness (nm)')
-plt.ylabel('Relative Intesnity (%)')
-plt.title('Absorbtion of light through hBN sample')
-
-plt.figure(6)
-plt.plot(Lambda_300nm_20[0],Lambda_300nm_20[1], color = 'blue')
-plt.plot(Lambda_400nm_20[0],Lambda_400nm_20[1], color = 'blue')
-plt.plot(Lambda_500nm_20[0],Lambda_500nm_20[1], color = 'blue')
-plt.plot(Lambda_600nm_20[0],Lambda_600nm_20[1], color = 'blue')
-plt.plot(Lambda_700nm_20[0],Lambda_700nm_20[1], color = 'blue')
-plt.plot(Lambda_800nm_20[0],Lambda_800nm_20[1], color = 'blue')
-plt.plot(Lambda_900nm_20[0],Lambda_900nm_20[1], color = 'blue')
-plt.title('20k PL Sample')
-plt.xlabel('Wavelength (nm)')
-plt.ylabel('Intensity (arb)')
-plt.show()
-
-plt.figure(7)
-plt.plot(Lambda_300nm_290[0],Lambda_300nm_290[1], color = 'blue')
-plt.plot(Lambda_400nm_290[0],Lambda_400nm_290[1], color = 'blue')
-plt.plot(Lambda_500nm_290[0],Lambda_500nm_290[1], color = 'blue')
-plt.plot(Lambda_600nm_290[0],Lambda_600nm_290[1], color = 'blue')
-plt.plot(Lambda_700nm_290[0],Lambda_700nm_290[1], color = 'blue')
-plt.plot(Lambda_800nm_290[0],Lambda_800nm_290[1], color = 'blue')
-plt.plot(Lambda_900nm_290[0],Lambda_900nm_290[1], color = 'blue')
-plt.title('290k PL Sample')
-plt.xlabel('Wavelength (nm)')
-plt.ylabel('Intensity (arb)')
-plt.show()
-
-plt.figure(8)
-plt.plot(Substrate_300nm_290[0],Substrate_300nm_290[1], color = 'blue')
-plt.plot(Substrate_400nm_290[0],Substrate_400nm_290[1], color = 'blue')
-plt.plot(Substrate_500nm_290[0],Substrate_500nm_290[1], color = 'blue')
-plt.plot(Substrate_600nm_290[0],Substrate_600nm_290[1], color = 'blue')
-plt.plot(Substrate_700nm_290[0],Substrate_700nm_290[1], color = 'blue')
-plt.plot(Substrate_800nm_290[0],Substrate_800nm_290[1], color = 'blue')
-plt.plot(Substrate_900nm_290[0],Substrate_900nm_290[1], color = 'blue')
-plt.title('290k PL Substrate')
-plt.xlabel('Wavelength (nm)')
-plt.ylabel('Intensity (arb)')
-plt.show()
-
-plt.figure(9)
-plt.plot(Substrate_300nm_8[0],Substrate_300nm_8[1], color = 'blue')
-plt.plot(Substrate_400nm_8[0],Substrate_400nm_8[1], color = 'blue')
-plt.plot(Substrate_500nm_8[0],Substrate_500nm_8[1], color = 'blue')
-plt.plot(Substrate_600nm_8[0],Substrate_600nm_8[1], color = 'blue')
-plt.plot(Substrate_700nm_8[0],Substrate_700nm_8[1], color = 'blue')
-plt.plot(Substrate_800nm_8[0],Substrate_800nm_8[1], color = 'blue')
-plt.plot(Substrate_900nm_8[0],Substrate_900nm_8[1], color = 'blue')
-plt.title('8k PL Substrate')
-plt.xlabel('Wavelength (nm)')
-plt.ylabel('Intensity (arb)')
-plt.show()
-
-
 Array20x = np.concatenate([Lambda_300nm_20[0],Lambda_400nm_20[0],Lambda_500nm_20[0],Lambda_600nm_20[0],Lambda_700nm_20[0],Lambda_800nm_20[0],Lambda_900nm_20[0]],axis=0)
 Array20y = np.concatenate([Lambda_300nm_20[1],Lambda_400nm_20[1],Lambda_500nm_20[1],Lambda_600nm_20[1],Lambda_700nm_20[1],Lambda_800nm_20[1],Lambda_900nm_20[1]],axis=0)
 
@@ -310,78 +250,37 @@ SubArray8y = SubArray8y[Inds4[::1]]
 
 
 
+plt.figure(10)
+RelativeIntensity = np.exp((-max(alpha) * thicc))
+plt.plot((thicc*1e7),RelativeIntensity*100)
+plt.xlabel('Sample thickness (nm)')
+plt.ylabel('Relative Intesnity (%)')
+plt.title('Absorbtion of light through hBN sample')
 
+plt.figure(6)
+plt.plot(Array20x,Array20y)
+plt.title('20k PL Sample')
+plt.xlabel('Wavelength (nm)')
+plt.ylabel('Intensity (arb)')
+plt.show()
 
+plt.figure(7)
+plt.plot(Array290x,Array290y)
+plt.title('290k PL Sample')
+plt.xlabel('Wavelength (nm)')
+plt.ylabel('Intensity (arb)')
+plt.show()
 
+plt.figure(8)
+plt.plot(SubArray290x,SubArray290y)
+plt.title('290k PL Substrate')
+plt.xlabel('Wavelength (nm)')
+plt.ylabel('Intensity (arb)')
+plt.show()
 
-# ArrayFront300_290, ArrayBack300_290 = Lambda_300nm_290[1][0:int(len(Lambda_300nm_290[1])/2)],Lambda_300nm_290[1][int(len(Lambda_300nm_290[0])/2):len(Lambda_300nm_290[1])]
-# ArrayFront400_290, ArrayBack400_290 = Lambda_400nm_290[1][0:int(len(Lambda_400nm_290[1])/2)],Lambda_400nm_290[1][int(len(Lambda_400nm_290[0])/2):len(Lambda_400nm_290[1])]
-# ArrayFront500_290, ArrayBack500_290 = Lambda_500nm_290[1][0:int(len(Lambda_500nm_290[1])/2)],Lambda_500nm_290[1][int(len(Lambda_500nm_290[0])/2):len(Lambda_500nm_290[1])]
-# ArrayFront600_290, ArrayBack600_290 = Lambda_600nm_290[1][0:int(len(Lambda_600nm_290[1])/2)],Lambda_600nm_290[1][int(len(Lambda_600nm_290[0])/2):len(Lambda_600nm_290[1])]
-# ArrayFront700_290, ArrayBack700_290 = Lambda_700nm_290[1][0:int(len(Lambda_700nm_290[1])/2)],Lambda_700nm_290[1][int(len(Lambda_700nm_290[0])/2):len(Lambda_700nm_290[1])]
-# ArrayFront800_290, ArrayBack800_290 = Lambda_800nm_290[1][0:int(len(Lambda_800nm_290[1])/2)],Lambda_800nm_290[1][int(len(Lambda_800nm_290[0])/2):len(Lambda_800nm_290[1])]
-# ArrayFront900_290, ArrayBack900_290 = Lambda_900nm_290[1][0:int(len(Lambda_900nm_290[1])/2)],Lambda_900nm_290[1][int(len(Lambda_900nm_290[0])/2):len(Lambda_900nm_290[1])]
-
-# ArrayFront300_20, ArrayBack300_20 = Lambda_300nm_20[1][0:int(len(Lambda_300nm_20[1])/2)],Lambda_300nm_20[1][int(len(Lambda_300nm_20[0])/2):len(Lambda_300nm_20[1])]
-# ArrayFront400_20, ArrayBack400_20 = Lambda_400nm_20[1][0:int(len(Lambda_400nm_20[1])/2)],Lambda_400nm_20[1][int(len(Lambda_400nm_20[0])/2):len(Lambda_400nm_20[1])]
-# ArrayFront500_20, ArrayBack500_20 = Lambda_500nm_20[1][0:int(len(Lambda_500nm_20[1])/2)],Lambda_500nm_20[1][int(len(Lambda_500nm_20[0])/2):len(Lambda_500nm_20[1])]
-# ArrayFront600_20, ArrayBack600_20 = Lambda_600nm_20[1][0:int(len(Lambda_600nm_20[1])/2)],Lambda_600nm_20[1][int(len(Lambda_600nm_20[0])/2):len(Lambda_600nm_20[1])]
-# ArrayFront700_20, ArrayBack700_20 = Lambda_700nm_20[1][0:int(len(Lambda_700nm_20[1])/2)],Lambda_700nm_20[1][int(len(Lambda_700nm_20[0])/2):len(Lambda_700nm_20[1])]
-# ArrayFront800_20, ArrayBack800_20 = Lambda_800nm_20[1][0:int(len(Lambda_800nm_20[1])/2)],Lambda_800nm_20[1][int(len(Lambda_800nm_20[0])/2):len(Lambda_800nm_20[1])]
-# ArrayFront900_20, ArrayBack900_20 = Lambda_900nm_20[1][0:int(len(Lambda_900nm_20[1])/2)],Lambda_900nm_20[1][int(len(Lambda_900nm_20[0])/2):len(Lambda_900nm_20[1])]
-
-# SubArrayFront300_290, SubArrayBack300_290 =Substrate_300nm_290[1][0:int(len(Substrate_300nm_290[1])/2)],Substrate_300nm_290[1][int(len(Substrate_300nm_290[0])/2):len(Substrate_300nm_290[1])]
-# SubArrayFront400_290, SubArrayBack400_290 =Substrate_400nm_290[1][0:int(len(Substrate_400nm_290[1])/2)],Substrate_400nm_290[1][int(len(Substrate_400nm_290[0])/2):len(Substrate_400nm_290[1])]
-# SubArrayFront500_290, SubArrayBack500_290 =Substrate_500nm_290[1][0:int(len(Substrate_500nm_290[1])/2)],Substrate_500nm_290[1][int(len(Substrate_500nm_290[0])/2):len(Substrate_500nm_290[1])]
-# SubArrayFront600_290, SubArrayBack600_290 =Substrate_600nm_290[1][0:int(len(Substrate_600nm_290[1])/2)],Substrate_600nm_290[1][int(len(Substrate_600nm_290[0])/2):len(Substrate_600nm_290[1])]
-# SubArrayFront700_290, SubArrayBack700_290 =Substrate_700nm_290[1][0:int(len(Substrate_700nm_290[1])/2)],Substrate_700nm_290[1][int(len(Substrate_700nm_290[0])/2):len(Substrate_700nm_290[1])]
-# SubArrayFront800_290, SubArrayBack800_290 =Substrate_800nm_290[1][0:int(len(Substrate_800nm_290[1])/2)],Substrate_800nm_290[1][int(len(Substrate_800nm_290[0])/2):len(Substrate_800nm_290[1])]
-# SubArrayFront900_290, SubArrayBack900_290 =Substrate_900nm_290[1][0:int(len(Substrate_900nm_290[1])/2)],Substrate_900nm_290[1][int(len(Substrate_900nm_290[0])/2):len(Substrate_900nm_290[1])]
-
-# SubArrayFront300_8, SubArrayBack300_8 =Substrate_300nm_8[1][0:int(len(Substrate_300nm_8[1])/2)],Substrate_300nm_8[1][int(len(Substrate_300nm_8[0])/2):len(Substrate_300nm_8[1])]
-# SubArrayFront400_8, SubArrayBack400_8 =Substrate_400nm_8[1][0:int(len(Substrate_400nm_8[1])/2)],Substrate_400nm_8[1][int(len(Substrate_400nm_8[0])/2):len(Substrate_400nm_8[1])]
-# SubArrayFront500_8, SubArrayBack500_8 =Substrate_500nm_8[1][0:int(len(Substrate_500nm_8[1])/2)],Substrate_500nm_8[1][int(len(Substrate_500nm_8[0])/2):len(Substrate_500nm_8[1])]
-# SubArrayFront600_8, SubArrayBack600_8 =Substrate_600nm_8[1][0:int(len(Substrate_600nm_8[1])/2)],Substrate_600nm_8[1][int(len(Substrate_600nm_8[0])/2):len(Substrate_600nm_8[1])]
-# SubArrayFront700_8, SubArrayBack700_8 =Substrate_700nm_8[1][0:int(len(Substrate_700nm_8[1])/2)],Substrate_700nm_8[1][int(len(Substrate_700nm_8[0])/2):len(Substrate_700nm_8[1])]
-# SubArrayFront800_8, SubArrayBack800_8 =Substrate_800nm_8[1][0:int(len(Substrate_800nm_8[1])/2)],Substrate_800nm_8[1][int(len(Substrate_800nm_8[0])/2):len(Substrate_800nm_8[1])]
-# SubArrayFront900_8, SubArrayBack900_8 =Substrate_900nm_8[1][0:int(len(Substrate_900nm_8[1])/2)],Substrate_900nm_8[1][int(len(Substrate_900nm_8[0])/2):len(Substrate_900nm_8[1])]
-
-# Arr290Avg1 = (ArrayBack300_290 + ArrayFront400_290) / 2
-# Arr290Avg2 = (ArrayBack400_290 + ArrayFront500_290) / 2
-# Arr290Avg3 = (ArrayBack500_290 + ArrayFront600_290) / 2
-# Arr290Avg4 = (ArrayBack600_290 + ArrayFront700_290) / 2
-# Arr290Avg5 = (ArrayBack700_290 + ArrayFront800_290) / 2
-# Arr290Avg6 = (ArrayBack800_290 + ArrayFront900_290) / 2
-
-# Arr20Avg1 = (ArrayBack300_20 + ArrayFront400_20) / 2
-# Arr20Avg2 = (ArrayBack400_20 + ArrayFront500_20) / 2
-# Arr20Avg3 = (ArrayBack500_20 + ArrayFront600_20) / 2
-# Arr20Avg4 = (ArrayBack600_20 + ArrayFront700_20) / 2
-# Arr20Avg5 = (ArrayBack700_20 + ArrayFront800_20) / 2
-# Arr20Avg6 = (ArrayBack800_20 + ArrayFront900_20) / 2
-
-# SubArr290Avg1 = (SubArrayBack300_290 + SubArrayFront400_290) / 2
-# SubArr290Avg2 = (SubArrayBack400_290 + SubArrayFront500_290) / 2
-# SubArr290Avg3 = (SubArrayBack500_290 + SubArrayFront600_290) / 2
-# SubArr290Avg4 = (SubArrayBack600_290 + SubArrayFront700_290) / 2
-# SubArr290Avg5 = (SubArrayBack700_290 + SubArrayFront800_290) / 2
-# SubArr290Avg6 = (SubArrayBack800_290 + SubArrayFront900_290) / 2
-
-# SubArr8Avg1 = (SubArrayBack300_8 + SubArrayFront400_8) / 2
-# SubArr8Avg2 = (SubArrayBack400_8 + SubArrayFront500_8) / 2
-# SubArr8Avg3 = (SubArrayBack500_8 + SubArrayFront600_8) / 2
-# SubArr8Avg4 = (SubArrayBack600_8 + SubArrayFront700_8) / 2
-# SubArr8Avg5 = (SubArrayBack700_8 + SubArrayFront800_8) / 2
-# SubArr8Avg6 = (SubArrayBack800_8 + SubArrayFront900_8) / 2
-
-# Array290 = np.concatenate([ArrayFront300_290,Arr20Avg1,Arr290Avg2,Arr290Avg3,Arr290Avg4,Arr290Avg5,Arr290Avg6,ArrayBack900_290], axis=0)
-# Array20 = np.concatenate([ArrayFront300_20,Arr20Avg1,Arr20Avg2,Arr20Avg3,Arr20Avg4,Arr20Avg5,Arr20Avg6,ArrayBack900_290], axis=0)
-# SubArray290 = np.concatenate([SubArrayFront300_290,SubArr290Avg1,SubArr290Avg2,SubArr290Avg3,SubArr290Avg4,SubArr290Avg5,SubArr290Avg6,SubArrayBack900_290], axis=0)
-# SubArray8 = np.concatenate([SubArrayFront300_8,SubArr8Avg1,SubArr8Avg2,SubArr8Avg3,SubArr8Avg4,SubArr8Avg5,SubArr8Avg6,SubArrayBack900_8], axis=0)
-
-# Array2901 = np.concatenate([ArrayFront300_290,ArrayBack400_290,Arr290Avg2,Arr290Avg3,Arr290Avg4,Arr290Avg5,Arr290Avg6,ArrayBack900_290],axis=0)
-
-# Sample290_x = np.linspace(min(Lambda_300nm_290[0]),max(Lambda_900nm_290[0]),len(Array290))
-# Sample20_x = np.linspace(min(Lambda_300nm_20[0]),max(Lambda_900nm_20[0]),len(Array20))
-# Substrate290_x = np.linspace(min(Substrate_300nm_290[0]),max(Substrate_900nm_290[0]),len(SubArray290))
-# Substrate8_x = np.linspace(min(Substrate_300nm_8[0]),max(Substrate_900nm_8[0]),len(SubArray8))
+plt.figure(9)
+plt.plot(SubArray8x,SubArray8y)
+plt.title('8k PL Substrate')
+plt.xlabel('Wavelength (nm)')
+plt.ylabel('Intensity (arb)')
+plt.show()
