@@ -84,126 +84,126 @@ alpha = (np.log((1/T_film))) / 2.5e-5
 #alpha = np.log( ( ((1- R_film)**2) / T_film) ) / 2.5e-5 
 #alpha = np.log(( ((1- R_film)**2) / (2 * T_film)) + np.sqrt( (( ((1- R_film)**4) / (4 * T_film**2)) + (R_film**2)) )) / 2.5e-5
 
-# DirectAllowed = (alpha*hv)**2
-# IndirectAllowed = (alpha*hv)**0.5
-# DirectDisallowed = (alpha*hv)**(2/3)
-# IndirectDisallowed = (alpha*hv)**(1/3)
+DirectAllowed = (alpha*hv)**2
+IndirectAllowed = (alpha*hv)**0.5
+DirectDisallowed = (alpha*hv)**(2/3)
+IndirectDisallowed = (alpha*hv)**(1/3)
 
-# slope, intercept, r_value, p_value, std_err = stats.linregress(hv[375:457],DirectAllowed[375:457])
-# slope2, intercept2, r_value2, p_value2, std_err2 = stats.linregress(hv[480:490],DirectAllowed[480:490])
-# y = slope * xgen + intercept
-# y2 = slope2 * xgen + intercept2
+slope, intercept, r_value, p_value, std_err = stats.linregress(hv[425:452],DirectAllowed[425:452])
+slope2, intercept2, r_value2, p_value2, std_err2 = stats.linregress(hv[480:490],DirectAllowed[480:490])
+y = slope * xgen + intercept
+y2 = slope2 * xgen + intercept2
 
-# slope3, intercept3, r_value3, p_value3, std_err3 = stats.linregress(hv[341:439],IndirectAllowed[341:439])
-# slope4, intercept4, r_value4, p_value4, std_err4 = stats.linregress(hv[480:490],IndirectAllowed[480:490])
+slope3, intercept3, r_value3, p_value3, std_err3 = stats.linregress(hv[425:452],IndirectAllowed[425:452])
+slope4, intercept4, r_value4, p_value4, std_err4 = stats.linregress(hv[480:490],IndirectAllowed[480:490])
 
-# y3 = slope3 * xgen + intercept3
-# y4 = slope4 * xgen + intercept4
+y3 = slope3 * xgen + intercept3
+y4 = slope4 * xgen + intercept4
 
-# slope5, intercept5, r_value5, p_value5, std_err5 = stats.linregress(hv[379:457],DirectDisallowed[379:457])
-# slope6, intercept6, r_value6, p_value6, std_err6 = stats.linregress(hv[480:490],DirectDisallowed[480:490])
+slope5, intercept5, r_value5, p_value5, std_err5 = stats.linregress(hv[425:452],DirectDisallowed[425:452])
+slope6, intercept6, r_value6, p_value6, std_err6 = stats.linregress(hv[480:490],DirectDisallowed[480:490])
 
-# y5 = slope5 * xgen + intercept5
-# y6 = slope6 * xgen + intercept6
+y5 = slope5 * xgen + intercept5
+y6 = slope6 * xgen + intercept6
 
-# slope7, intercept7, r_value7, p_value7, std_err7 = stats.linregress(hv[383:461],IndirectDisallowed[383:461])
-# slope8, intercept8, r_value8, p_value8, std_err8 = stats.linregress(hv[480:490],IndirectDisallowed[480:490])
+slope7, intercept7, r_value7, p_value7, std_err7 = stats.linregress(hv[425:452],IndirectDisallowed[425:452])
+slope8, intercept8, r_value8, p_value8, std_err8 = stats.linregress(hv[480:490],IndirectDisallowed[480:490])
 
-# y7 = slope7 * xgen + intercept7
-# y8 = slope8 * xgen + intercept8
+y7 = slope7 * xgen + intercept7
+y8 = slope8 * xgen + intercept8
 
-# line1start = (min(xgen),min(y))
-# line1end = (max(xgen),max(y))
+line1start = (min(xgen),min(y))
+line1end = (max(xgen),max(y))
 
-# line2start = (min(xgen),min(y2))
-# line2end = (max(xgen),max(y2))
+line2start = (min(xgen),min(y2))
+line2end = (max(xgen),max(y2))
 
-# line3start = (min(xgen),min(y3))
-# line3end = (max(xgen),max(y3))
+line3start = (min(xgen),min(y3))
+line3end = (max(xgen),max(y3))
 
-# line4start = (min(xgen),min(y4))
-# line4end = (max(xgen),max(y4))
+line4start = (min(xgen),min(y4))
+line4end = (max(xgen),max(y4))
 
-# line5start = (min(xgen),min(y5))
-# line5end = (max(xgen),max(y5))
+line5start = (min(xgen),min(y5))
+line5end = (max(xgen),max(y5))
 
-# line6start = (min(xgen),min(y6))
-# line6end = (max(xgen),max(y6))
+line6start = (min(xgen),min(y6))
+line6end = (max(xgen),max(y6))
 
-# line7start = (min(xgen),min(y7))
-# line7end = (max(xgen),max(y7))
+line7start = (min(xgen),min(y7))
+line7end = (max(xgen),max(y7))
 
-# line8start = (min(xgen),min(y8))
-# line8end = (max(xgen),max(y8))
-
-
-# DirectAllowedIntercept = line_intersection((line1start,line1end),(line2start,line2end))
-# IndirectAllowedIntercept = line_intersection((line3start,line3end),(line4start,line4end))
-# DirectDisallowedIntercept = line_intersection((line5start,line5end),(line6start,line6end))
-# IndirectDisallowedIntercept = line_intersection((line7start,line7end),(line8start,line8end))
-
-# DirAllow = np.around(DirectAllowedIntercept[0],3)
-# IndAllow = np.around(IndirectAllowedIntercept[0],3)
-# DirDisallow = np.around(DirectDisallowedIntercept[0],3)
-# IndDisallow = np.around(IndirectDisallowedIntercept[0],3)
+line8start = (min(xgen),min(y8))
+line8end = (max(xgen),max(y8))
 
 
-# plt.figure(11)
-# plt.semilogy(hv,alpha)
-# plt.xlabel('hv (eV)')
-# plt.ylabel('log α (cm^-1)')
-# plt.title('Absorbtion coefficent')
-# plt.plot()
+DirectAllowedIntercept = line_intersection((line1start,line1end),(line2start,line2end))
+IndirectAllowedIntercept = line_intersection((line3start,line3end),(line4start,line4end))
+DirectDisallowedIntercept = line_intersection((line5start,line5end),(line6start,line6end))
+IndirectDisallowedIntercept = line_intersection((line7start,line7end),(line8start,line8end))
 
-# plt.figure(2)
-# plt.plot(hv,DirectAllowed)
-# plt.xlabel('hv (eV)')
-# plt.ylabel('αhv^2 (cm^-1 eV)^2')
-# plt.title(f'Direct Bandgap (Allowed), Bandgap = {DirAllow}eV')
+DirAllow = np.around(DirectAllowedIntercept[0],3)
+IndAllow = np.around(IndirectAllowedIntercept[0],3)
+DirDisallow = np.around(DirectDisallowedIntercept[0],3)
+IndDisallow = np.around(IndirectDisallowedIntercept[0],3)
 
-# plt.plot(xgen,y,linestyle='dashed')
-# plt.plot(xgen,y2,linestyle='dashed')
 
-# plt.ylim(min(DirectAllowed),max(DirectAllowed))
+plt.figure(11)
+plt.semilogy(hv,alpha)
+plt.xlabel('hv (eV)')
+plt.ylabel('log α (cm^-1)')
+plt.title('Absorption coefficent')
+plt.plot()
 
-# plt.show()
+plt.figure(2)
+plt.plot(hv,DirectAllowed)
+plt.xlabel('hv (eV)')
+plt.ylabel('αhv^2 (cm^-1 eV)^2')
+plt.title(f'Direct Bandgap (Allowed), Bandgap = {DirAllow}eV')
 
-# plt.figure(3)
-# plt.plot(hv,IndirectAllowed)
-# plt.xlabel('hv (eV)')
-# plt.ylabel('αhv^1/2 (cm^-1 eV)^1/2')
-# plt.title(f'Indirect Bandgap (Allowed), Bandgap = {IndAllow}eV')
+plt.plot(xgen,y,linestyle='dashed')
+plt.plot(xgen,y2,linestyle='dashed')
 
-# plt.plot(xgen,y3,linestyle='dashed')
-# plt.plot(xgen,y4,linestyle='dashed')
+plt.ylim(min(DirectAllowed),max(DirectAllowed))
 
-# plt.ylim(min(IndirectAllowed),max(IndirectAllowed))
+plt.show()
 
-# plt.show()
+plt.figure(3)
+plt.plot(hv,IndirectAllowed)
+plt.xlabel('hv (eV)')
+plt.ylabel('αhv^1/2 (cm^-1 eV)^1/2')
+plt.title(f'Indirect Bandgap (Allowed), Bandgap = {IndAllow}eV')
 
-# plt.figure(4)
-# plt.plot(hv,DirectDisallowed)
-# plt.xlabel('hv (eV)')
-# plt.ylabel('αhv^2/3 (cm^-1 eV)^2/3')
-# plt.title(f'Direct Bandgap (Disllowed), Bandgap = {DirDisallow}eV')
+plt.plot(xgen,y3,linestyle='dashed')
+plt.plot(xgen,y4,linestyle='dashed')
 
-# plt.plot(xgen,y5,linestyle='dashed')
-# plt.plot(xgen,y6,linestyle='dashed')
+plt.ylim(min(IndirectAllowed),max(IndirectAllowed))
 
-# plt.ylim(min(DirectDisallowed),max(DirectDisallowed))
+plt.show()
 
-# plt.show()
+plt.figure(4)
+plt.plot(hv,DirectDisallowed)
+plt.xlabel('hv (eV)')
+plt.ylabel('αhv^2/3 (cm^-1 eV)^2/3')
+plt.title(f'Direct Bandgap (Disllowed), Bandgap = {DirDisallow}eV')
 
-# plt.figure(5)
-# plt.plot(hv,IndirectDisallowed)
-# plt.xlabel('hv (eV)')
-# plt.ylabel('αhv^1/3 (cm^-1 eV)^1/3')
-# plt.title(f'Indirect Bandgap (Disallowed), Bandgap = {IndDisallow}eV')
+plt.plot(xgen,y5,linestyle='dashed')
+plt.plot(xgen,y6,linestyle='dashed')
 
-# plt.plot(xgen,y7,linestyle='dashed')
-# plt.plot(xgen,y8,linestyle='dashed')
+plt.ylim(min(DirectDisallowed),max(DirectDisallowed))
 
-# plt.ylim(min(IndirectDisallowed),max(IndirectDisallowed))
+plt.show()
+
+plt.figure(5)
+plt.plot(hv,IndirectDisallowed)
+plt.xlabel('hv (eV)')
+plt.ylabel('αhv^1/3 (cm^-1 eV)^1/3')
+plt.title(f'Indirect Bandgap (Disallowed), Bandgap = {IndDisallow}eV')
+
+plt.plot(xgen,y7,linestyle='dashed')
+plt.plot(xgen,y8,linestyle='dashed')
+
+plt.ylim(min(IndirectDisallowed),max(IndirectDisallowed))
 
 plt.show()
 
@@ -244,7 +244,7 @@ RelativeIntensity = np.exp((-max(alpha) * thicc))
 plt.plot((thicc*1e7),RelativeIntensity*100)
 plt.xlabel('Sample thickness (nm)')
 plt.ylabel('Relative Intesnity (%)')
-plt.title('Absorbtion of light through hBN sample')
+plt.title('Transmission of light through hBN sample: ' + str(np.around(RelativeIntensity[25000] * 100,2))+'% at 250nm')
 
 plt.figure(6)
 plt.plot(Array20x,Array20y)
