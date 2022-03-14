@@ -86,7 +86,8 @@ Ray_DetectO_400 = np.array([0,0,0,0,0,1.95,22.68,54.36,86.04,111.58,133.18,145.8
 
 
 Ray_DetectN_450 = np.array([20.56,97.25,184.41,264.40,326.80,369.96,381.05,357.42,326.88,295.17,266.69,246.80,232.66,221.72,209.18,201.99,189.70,180.38,173.44,166.69])
-
+Ray_DetectAl_450 = np.array([0,0,0,0,0,0,26.50,193.24,384.07,642.00,914.58,1172.00,1399.13,1608.94,1803.97,1986.27,2151.53,2306.00,2454.26,2572.23])
+Ray_DetectO_450 = np.array([0,0,0,0,0,0,9.33,32.69,57.80,80.30,99.03,111.92,119.32,123.49,125.09,124.91,123.39,120.92,111.38,114.29])
 
 BeamEnergy = np.arange(1,21,1)
 
@@ -262,4 +263,24 @@ plt.plot(BeamEnergy,(Ray_DetectN_450 / max(Ray_DetectN_450)), label = 'I_sim (N)
 plt.plot((EDX_Energy - AvgDelta),(EDXPeaksN/max(EDXPeaksN)), label = 'N', marker = 'x', color = 'blue')
 plt.plot((LV_EDX_Energy - AvgDelta_LV_30),(LV_EDXPeaksN_30/max(LV_EDXPeaksN_30)), label = 'N (30Pa)', marker = 'o', color ='teal')
 plt.plot((LV_EDX_Energy - AvgDelta_LV_100),(LV_EDXPeaksN_100/max(LV_EDXPeaksN_100)), label = 'N (100Pa)', marker = 's', color = 'deepskyblue')
+plt.legend()
+
+plt.figure(136)
+plt.title('Detection of X-Rays, Simulation Substrate (Al) (450nm) Vs Experement (Normalised) (Compensated)')
+plt.xlabel('Beam Energy (keV)')
+plt.ylabel('Intensity (Arb. Units)')
+plt.plot(BeamEnergy,(Ray_DetectAl_450 / max(Ray_DetectAl_450)), label = 'I_sim (Al)', marker = 'o', color = 'forestgreen', linestyle = 'dotted')
+plt.plot((EDX_Energy - AvgDelta),(EDXPeaksAl/max(EDXPeaksAl)), label = 'Al', marker = 'x', color = 'green')
+plt.plot((LV_EDX_Energy - AvgDelta_LV_30),(LV_EDXPeaksAl_30/max(LV_EDXPeaksAl_30)), label = 'Al (30Pa)', marker = 'o', color ='springgreen')
+plt.plot((LV_EDX_Energy - AvgDelta_LV_100),(LV_EDXPeaksAl_100/max(LV_EDXPeaksAl_100)), label = 'Al (100Pa)', marker = 's', color = 'mediumseagreen')
+plt.legend()
+
+plt.figure(137)
+plt.title('Detection of X-Rays, Simulation Substrate (O) (450nm) Vs Experement (Normalised) (Compensated)')
+plt.xlabel('Beam Energy (keV)')
+plt.ylabel('Intensity (Arb. Units)')
+plt.plot(BeamEnergy,(Ray_DetectO_450 / max(Ray_DetectO_450)), label = 'I_sim (O)', marker = 'o', color = 'darkred', linestyle = 'dotted')
+plt.plot((EDX_Energy - AvgDelta),(EDXPeaksO/max(EDXPeaksO)), label = 'O', marker = 'x', color = 'red')
+plt.plot((LV_EDX_Energy - AvgDelta_LV_30),(LV_EDXPeaksO_30/max(LV_EDXPeaksO_30)), label = 'O (30Pa)', marker = 'o', color ='orangered')
+plt.plot((LV_EDX_Energy - AvgDelta_LV_100),(LV_EDXPeaksO_100/max(LV_EDXPeaksO_100)), label = 'O (100Pa)', marker = 's', color = 'firebrick')
 plt.legend()
